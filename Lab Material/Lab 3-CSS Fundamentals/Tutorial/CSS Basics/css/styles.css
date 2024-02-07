@@ -1,0 +1,24 @@
+/* Universal selector*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Type selector [element selector] */
+header {
+    background-color: brown;
+    color: white;
+}
+
+/* Class Selector */
+.main-nav {
+    background-color: blueviolet;
+}
+
+.highlight-class {
+    background-color: bisque;
+}
+
+#section2 {
+    background-color: yellow;
+}

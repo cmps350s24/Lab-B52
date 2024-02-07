@@ -1,6 +1,11 @@
 .container {
     height: 500px;
     outline: 2px solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
 }
 
 .box {
@@ -8,4 +13,10 @@
     height: 50px;
     background-color: aqua;
     margin: 2px;
+}
+
+.boxC {
+    order: -1;
+    background-color: red;
+    align-self: center;
 }

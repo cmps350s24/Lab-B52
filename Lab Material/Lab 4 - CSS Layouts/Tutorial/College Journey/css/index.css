@@ -28,6 +28,7 @@ header {
         a {
             text-decoration: none;
             padding: 0.2rem;
+            font-size: 0.75rem;
 
         }
 
@@ -58,6 +59,12 @@ main {
 
     .middle-section {
         .sections {
+            section {
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                margin: 1rem 0;
+                padding: 1rem;
+            }
+
             h2 {
                 background-color: red;
                 color: white;
@@ -75,6 +82,12 @@ main {
                 }
 
                 text-align: center;
+            }
+
+            #campus-involvement {
+                ol {
+                    margin: 1rem;
+                }
             }
 
             #internship-experience {
@@ -103,6 +116,65 @@ main {
                     height: 20rem;
                 }
             }
+
+
+        }
+
+        aside {
+            margin-top: 2rem;
+
+            li {
+                list-style: none;
+            }
+
+            /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+        }
+    }
+}
+
+footer {
+    background-color: brown;
+    color: white;
+    padding: 1rem;
+}
+
+@media screen and (min-width : 40rem) {
+    header {
+        display: flex;
+        justify-content: space-between;
+
+        .main-menu {
+            ul {
+                display: flex;
+
+                li:not(:last-child) {
+                    a::after {
+                        content: "|";
+                        padding-left: 0.2rem;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    .headline {
+        display: flex;
+        /* outline: auto; */
+        align-items: center;
+    }
+
+    .middle-section {
+        display: flex;
+        gap: 1rem;
+
+        .sections {
+            flex: 4;
+        }
+
+        aside {
+            flex: 1;
         }
     }
 }

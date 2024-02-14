@@ -18,75 +18,39 @@
 
         /* Parent */
         .container {
-            display: flex;
-            /* flex-direction: column; */
-
+            display: grid;
             height: 400px;
-
             outline: auto;
-            justify-content: center;
             align-items: center;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, 100px);
 
         }
 
         /* Children */
         .box {
             height: 40px;
-            width: 40px;
+            width: 100px;
+            background-color: aqua;
             outline: auto;
             /* margin: 10px; */
             /* padding: 30px; */
         }
-
-        /* one child */
-
-        .box1 {
-            flex: 1;
-        }
-
-        .box2 {
-            /* display: flex; */
-
-            background-color: red;
-        }
-
-
-
-        /* 
-        
-            if(width >= 600){
-
-            }
-        
-        */
-        /* @media (min-width: 600px) {
-            .container {
-                flex-direction: row;
-
-            }
-
-            .box {
-                flex: 1
-            }
-        }
-
-        @media (min-width: 800px) {
-            body {
-                background-color: blue;
-            }
-        } */
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="box box1">A</div>
-        <div class="box box2">
-            <div class="boxi box3">C</div>
-            <div class="boxi box4">D</div>
-            <div class="boxi box5">E</div>
-            <div class="boxi box6">F</div>
-        </div>
+        <div class="box box2">B</div>
+        <div class="box box3">C</div>
+        <div class="box box4">D</div>
+        <div class="box box5">E</div>
+        <div class="box box6">F</div>
+        <div class="box box6">F</div>
+        <div class="box box6">F</div>
+        <div class="box box6">F</div>
+        <div class="box box6">F</div>
 
     </div>
 </body>

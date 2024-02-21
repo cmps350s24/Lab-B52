@@ -168,10 +168,58 @@ const people = [
     }
 ]
 people.forEach(person => console.log(person.name, person.age, person.gender))
-const femaleStudents = people.filter(person => person.gender == "Female")
-console.log(`The female students are ${femaleStudents}`);
+const femaleStudents = people.filter(person => person.gender == "XFemale")
+console.log(femaleStudents);
+console.log(`This is the value ${12 + 15}`);
+
+const oldest = people.reduce((old, person) => old.age > person.age ? old : person)
+
+console.log(`The oldest person is ${oldest.name} and ${oldest.gender == "Female" ? "her" : "his"} age is ${oldest.age}`);
+// Abdulahi 25 Male
+// Ali 26 Male
+// Sara 27 Female
+// Maha 28 Female
+
+const sum = people.reduce((total, person) => total + person.age, 0)
+
+// total = 0, person = { age: 25 }, total = total + person.age, total = 0 + 25, total = 25
+// total = 25, person = { age: 26 }, total = total + person.age, total = 25 + 26, total = 51
+// total = 51, person = { age: 27 }, total = total + person.age, total = 51 + 27, total = 78
+// total = 78, person = { age: 28 }, total = total + person.age, total = 78 + 28, total = 106
 
 
+const avg = sum / people.length
+console.log(`The average age is ${avg}`);
+
+const sara = people.find(person => person.name == "Sara")
+
+console.log(`Student Sara age is ${sara.age}`);
+
+
+const namesOfStudens = people.map(person => `<li> ${person.name} </li>`)
+
+console.log(namesOfStudens.join());
+
+
+// // reduce
+// let oldest = people[0]
+// for (const person of people) {
+//     if (person.age < oldest.age) {
+//         oldest = person
+//     }
+// }
+
+
+// if ()
+
+//     const numbers = [1, 20, 3, 40, 5, 6, 7, 8, 9, 10]
+// const max = numbers.reduce((big, curr) => big > curr ? big : curr)
+
+// // round 1
+// max = 1, curr = 20, compared, update value of max = 20
+// max = 20, curr = 3, compared, update value of max = 20
+// max = 20, curr = 40, compared, update value of max = 40
+// max = 40, curr = 5, compared, update value of max = 40
 
 
 

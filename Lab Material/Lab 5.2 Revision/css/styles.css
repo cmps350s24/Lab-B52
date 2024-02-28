@@ -7,10 +7,10 @@
 
 :root {
     --container--bg: rgb(13, 153, 13);
-    --header--bg: rgb(19, 228, 19);
+    --header--bg: rgb(177, 192, 40);
     --nav--bg: rgb(79, 32, 233);
     --main--bg: rgb(153, 43, 13);
-    --aside--bg: rgb(193, 237, 17);
+    --aside--bg: rgb(159, 123, 223);
     --footer--bg: rgb(77, 28, 71);
 }
 
@@ -21,28 +21,38 @@ body {
 .container {
     background-color: var(--container--bg);
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto 1fr auto;
+
+
     outline: auto;
     margin: 1rem;
     height: 70vh;
 
     .header {
-        background-color: var(--container--bg);
-
+        background-color: var(--header--bg);
+        grid-column: span 2;
     }
 
     .nav {
         background-color: var(--nav--bg);
+        grid-column: span 2;
     }
 
     .main {
         background-color: var(--main--bg);
+        grid-column: 2/3;
+        grid-row: 3/4;
+    }
 
+    .aside {
+        background-color: var(--aside--bg);
+        grid-column: 1/2;
+        grid-row: 3/4;
     }
 
     .footer {
         background-color: var(--footer--bg);
-        margin: 2rem;
+        grid-column: span 2;
     }
 }

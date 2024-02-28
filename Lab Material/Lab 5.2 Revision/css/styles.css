@@ -1,3 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --container--bg: rgb(13, 153, 13);
+    --header--bg: rgb(19, 228, 19);
+    --nav--bg: rgb(79, 32, 233);
+    --main--bg: rgb(153, 43, 13);
+    --footer--bg: rgb(77, 28, 71);
+}
+
 body {
-    background-color: bisque;
+    color: white;
+}
+
+.container {
+    background-color: var(--container--bg);
+
+    .header {
+        background-color: var(--container--bg);
+    }
+
+    .nav {
+        background-color: var(--nav--bg);
+    }
+
+    .main {
+        background-color: var(--main--bg);
+    }
+
+    .footer {
+        background-color: var(--footer--bg);
+    }
 }

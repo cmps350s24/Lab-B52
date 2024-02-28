@@ -10,6 +10,7 @@
     --header--bg: rgb(19, 228, 19);
     --nav--bg: rgb(79, 32, 233);
     --main--bg: rgb(153, 43, 13);
+    --aside--bg: rgb(193, 237, 17);
     --footer--bg: rgb(77, 28, 71);
 }
 
@@ -20,13 +21,15 @@ body {
 .container {
     background-color: var(--container--bg);
     display: grid;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto 1fr auto;
     outline: auto;
     margin: 1rem;
     height: 70vh;
 
     .header {
         background-color: var(--container--bg);
+
     }
 
     .nav {
@@ -35,9 +38,11 @@ body {
 
     .main {
         background-color: var(--main--bg);
+
     }
 
     .footer {
         background-color: var(--footer--bg);
+        margin: 2rem;
     }
 }

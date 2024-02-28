@@ -38,7 +38,7 @@ const people = [
     },
     {
         name: "Alanoud",
-        age: 20,
+        age: 22,
         gender: "female"
     },
     {
@@ -53,4 +53,18 @@ const people = [
     }
 ]
 
+
+const filteredFemale = people.filter(person => person.gender === 'female')
+const ageAbove21 = people.filter(person => person.age > 21 && person.gender === 'female')
+const sortedPeople = people.sort((a, b) => b.age - a.age)
+const namesOfpeople = people.map(a => a.name)
+const avgAge = people.reduce((sum, curr) => sum + curr.age, 0) / people.length
+
+
+
+console.log(filteredFemale);
+console.log(ageAbove21);
+console.log(sortedPeople);
+console.log(namesOfpeople);
+console.log(avgAge);
 

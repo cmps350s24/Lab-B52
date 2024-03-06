@@ -22,3 +22,7 @@ export function getAccounts() {
 export function addAccount(account) {
     accounts.push(account)
 }
+
+export function deposit(accountNo, amount){
+    
+}

@@ -7,19 +7,19 @@ export async function GET(request) {
 }
 export async function POST(request) {
     const account = await request.json()
-
-    return Response.json(account, { status: 201 })
+    const newAccount = await accountsRepo.addAccount(account)
+    return Response.json(newAccount, { status: 201 })
 }
 
-export async function PUT(request) {
-    const account = await request.json()
-    const index = accounts.findIndex(acc => acc.accountNo === account.accountNo)
-    if (index === -1)
-        return Response.json({ message: "account not found" }, { status: 404 })
+// export async function PUT(request) {
+//     const account = await request.json()
+//     const index = accounts.findIndex(acc => acc.accountNo === account.accountNo)
+//     if (index === -1)
+//         return Response.json({ message: "account not found" }, { status: 404 })
 
-    accounts[index] = account
-    return Response.json({ message: "successfully updated" }, { status: 200 })
-}
+//     accounts[index] = account
+//     return Response.json({ message: "successfully updated" }, { status: 200 })
+// }
 
 // npm i
 // npm run dev

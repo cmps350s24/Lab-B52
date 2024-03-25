@@ -8,5 +8,8 @@ export async function GET(request, { params }) {
     return Response.json(transactions)
 }
 export async function POST(request, { params }) {
-
+    const transaction = await request.json()
+    const accountNo = params.id
+    const account = await accountsRepo.addTransaction(accountNo, transaction)
+    return Response.json(account, { status: 200 })
 }

@@ -7,7 +7,7 @@ import accountsRepo from '@/app/repo/accounts-repo'
 export default async function Home() {
   const accounts = await accountsRepo.getAccounts()
   return <>
-    <Accounts accounts={accounts} />
+    <Accounts initialAccounts={accounts} />
   </>
 }
 

@@ -1,4 +1,5 @@
 import './globals.css'
+import NavBar from '@/app/component/NavBar'
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +13,10 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
       </head>
       <body>
+        <NavBar />
         {children}
+
+        <h2>This also is common for all the page</h2>
       </body>
     </html>
   )

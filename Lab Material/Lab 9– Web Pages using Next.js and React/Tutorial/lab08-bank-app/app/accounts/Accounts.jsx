@@ -1,10 +1,9 @@
 import React from 'react'
-import accountsRepo from '@/app/repo/accounts-repo'
+import styles from '@/app/page.module.css'
 
-export default async function Accounts() {
-    const accounts = await accountsRepo.getAccounts()
+export default function Accounts({ accounts }) {
     return <>
-        <table>
+        <table className={styles.table}>
             <thead>
                 <tr>
                     <th>Account Number</th>

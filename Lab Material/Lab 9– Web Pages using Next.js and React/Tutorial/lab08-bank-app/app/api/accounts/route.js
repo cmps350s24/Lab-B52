@@ -8,6 +8,7 @@ export async function GET(request) {
     const accounts = await accountRepo.getAccounts(type)
 
     return Response.json(accounts)
+
 }
 
 export async function POST(request) {

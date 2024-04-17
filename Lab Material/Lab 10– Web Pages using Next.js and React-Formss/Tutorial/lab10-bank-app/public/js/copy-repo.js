@@ -7,21 +7,18 @@ const baseUrl = '/api/accounts'
 class AccountRepo {
     //returns all the accounts depending on the type the user selected
     async getAccounts(acctType) {
-        const response = await fetch(
-            `http://localhost:3000/api/accounts?type=${acctType}`
-        )
+        const response = await fetch(`http://localhost:3000/api/accounts?type=${acctType}`)
         return response.json()
     }
     async deleteAccount(accountNo) {
-        const response = await fetch(
-            `http://localhost:3000/api/accounts/${accountNo}`,
-            { method: 'DELETE' }
-        )
+        const url = `http://localhost:3000/api/accounts/${accountNo}`,
+        const response = await fetch(url, { method: 'DELETE' })
         return response.json()
     }
 
     async addAccount(account) {
-        const response = await fetch(`http://localhost:3000/api/accounts`, {
+        const url = `http://localhost:3000/api/accounts`
+        const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

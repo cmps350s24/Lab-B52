@@ -55,6 +55,9 @@ class AccountsRepo {
         const accounts = await fs.readJson(this.filePath)
         const filteredAccounts = accounts.filter(acc => acc.accountNo != accNo)
         await fs.writeJson(this.filePath, filteredAccounts)
+
+        if (accounts.length == filteredAccounts.length)
+            return "Account does not exist"
         return "deleted successfully"
     }
     async addTransaction(accountNo, transaction) {

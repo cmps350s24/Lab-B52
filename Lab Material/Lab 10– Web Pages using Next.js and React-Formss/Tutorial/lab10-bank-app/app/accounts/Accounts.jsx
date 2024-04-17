@@ -11,6 +11,14 @@ export default function Accounts({ initialAccounts }) {
         const response = await fetch(`/api/accounts?type=${acctType}`)
         setAccounts(await response.json())
     }
+    async function handleDeleteAccount(accountNo) {
+        // 
+        const url = `/api/accounts/${accountNo}`
+        const response = await fetch(url, { method: 'DELETE' })
+        const message = await response.json()
+        alert(JSON.stringify(message))
+        handleLoadAccounts('All')
+    }
 
     return (
         <div>
@@ -41,7 +49,9 @@ export default function Accounts({ initialAccounts }) {
                 <tbody>
                     {
                         accounts.map(account => <Account
-                            account={account}>
+                            account={account}
+                            onDelete={handleDeleteAccount}
+                        >
                         </Account>)
                     }
                 </tbody>

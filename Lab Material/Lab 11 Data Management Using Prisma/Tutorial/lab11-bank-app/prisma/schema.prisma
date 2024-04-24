@@ -11,12 +11,13 @@ datasource db {
 }
 
 model Owner {
-  id          String @id @default(cuid())
-  firstname   String
-  lastname    String
-  email       String
-  gender      String
-  profileImag String
+  id           String    @id @default(cuid())
+  firstname    String
+  lastname     String
+  email        String
+  gender       String
+  profileImage String
+  accounts     Account[]
 }
 
 model Account {
@@ -24,12 +25,18 @@ model Account {
   acctType   String
   balance    Float
   dateOpened DateTime @default(now())
-  ownerId    String
+
+  ownerId String
+  Owner   Owner  @relation(fields: [ownerId], references: [id])
+
+  transactions Transaction[]
 }
 
 model Transaction {
   transId   Int    @id @default(autoincrement())
   transType String
   amount    Float
+
   accountNo String
+  Account   Account @relation(fields: [accountNo], references: [accountNo])
 }

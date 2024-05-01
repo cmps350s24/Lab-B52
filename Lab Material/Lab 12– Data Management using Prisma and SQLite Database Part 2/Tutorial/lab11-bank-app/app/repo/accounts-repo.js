@@ -110,7 +110,7 @@ class AccountsRepo {
     async getTransactions(accountNo) {
         try {
             return prisma.transaction.findMany({
-                where: { accountNo: accountNo }
+                where: { accountNo }
             })
         } catch (error) {
             return {
@@ -149,7 +149,10 @@ class AccountsRepo {
     // Aggregations 
     async getMinAndMaxBalance() {
         try {
-
+            return prisma.account.aggregate({
+                _max: { balance: true },
+                _min: { balance: true }
+            })
         } catch (error) {
             return {
                 error: error.message
@@ -159,7 +162,10 @@ class AccountsRepo {
     getTop3Accounts() {
         //top three , orderby and take
         try {
-
+            return prisma.account.findMany({
+                orderBy: { balance: "desc" },
+                take: 3
+            })
         } catch (error) {
             return {
                 error: error.message
@@ -168,14 +174,23 @@ class AccountsRepo {
     }
     getTransSum(accountNo, fromDate, toDate) {
         try {
-
+            return prisma.transaction.groupBy({
+                by: ['transType'],
+                _sum: { amount: true },
+                where: {
+                    accountNo: accountNo,
+                    date: {
+                        gte: new Date(fromDate).toISOString(),
+                        lte: new Date(toDate).toISOString()
+                    }
+                }
+            })
         } catch (error) {
             return {
                 error: error.message
             }
         }
     }
-
 }
 
 export default new AccountsRepo()

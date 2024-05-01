@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 class TeamManagerRepo {
     async addTeam(team) {
         try {
-
+            return prisma.team.create({ data: team })
         } catch (error) {
             return { error: error.message }
         }
@@ -64,6 +64,15 @@ class TeamManagerRepo {
             return { error: error.message }
         }
     }
+    async getTeam(id) {
+        try {
+            return prisma.team.findUnique({
+                where: { id: id }
+            })
+        } catch (error) {
+            return { error: error.message }
+        }
+    }
     async getTeamPlayers(teamId) {
         try {
             return prisma.player.findMany({
@@ -74,3 +83,5 @@ class TeamManagerRepo {
         }
     }
 }
+
+export default new TeamManagerRepo()

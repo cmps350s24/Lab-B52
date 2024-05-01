@@ -11,15 +11,19 @@ datasource db {
 }
 
 model Team {
-  id       String @id @default(cuid())
+  id       String   @id @default(cuid())
   name     String
   city     String
   division String
+  players  Player[]
 }
 
 model Player {
-    id
-    name
-    position
-    jerseyNumber
-    teamId
+  id           String @id @default(cuid())
+  name         String
+  position     String
+  jerseyNumber Int
+
+  Team   Team   @relation(fields: [teamId], references: [id])
+  teamId String
+}
